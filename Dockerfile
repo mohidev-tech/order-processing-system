@@ -5,14 +5,21 @@
 #   docker build --build-arg SERVICE=inventory-service   -t inventory-service .
 #   docker build --build-arg SERVICE=payment-service     -t payment-service .
 #   docker build --build-arg SERVICE=shipping-service    -t shipping-service .
+#
+# The build copies the entire repo because the multi-module parent pom
+# references all 4 services — Maven's reactor needs every declared module
+# to exist on disk before it can pick the one we actually want to build.
 ARG SERVICE=order-service
 
 FROM maven:3.9-eclipse-temurin-21-alpine AS build
 ARG SERVICE
 WORKDIR /src
 COPY pom.xml ./
-COPY shared/ ./shared/
-COPY ${SERVICE}/ ./${SERVICE}/
+COPY shared/             ./shared/
+COPY order-service/      ./order-service/
+COPY inventory-service/  ./inventory-service/
+COPY payment-service/    ./payment-service/
+COPY shipping-service/   ./shipping-service/
 RUN mvn -B -pl shared,${SERVICE} -am package -DskipTests && \
     cp ${SERVICE}/target/${SERVICE}-*.jar /tmp/app.jar
 
