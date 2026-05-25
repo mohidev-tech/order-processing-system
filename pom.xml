@@ -36,4 +36,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!-- Inherited by all child modules. Lombok needs to be a real dependency
+         (not just dep-management) so each module can use @Data/@Builder/@Slf4j
+         without re-declaring it. -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 </project>
