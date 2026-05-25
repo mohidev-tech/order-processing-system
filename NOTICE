@@ -1,0 +1,22 @@
+order-processing-system
+Copyright 2026 mohidev-tech
+
+This product includes software developed at mohidev-tech (https://github.com/mohidev-tech).
+
+------------------------------------------------------------------------
+Third-party software
+------------------------------------------------------------------------
+
+* Spring Boot                  Apache License 2.0
+* Spring for Apache Kafka      Apache License 2.0
+* Spring Data JPA              Apache License 2.0
+* Apache Kafka client          Apache License 2.0    https://kafka.apache.org/
+* Hibernate ORM                LGPL v2.1
+* PostgreSQL JDBC              BSD-2-Clause
+* H2 Database (test)           EPL 1.0 / MPL 2.0
+* Project Lombok               MIT License
+
+Base images:
+* eclipse-temurin:21-jre-alpine
+* postgres:16-alpine
+* confluentinc/cp-kafka

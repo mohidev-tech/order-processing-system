@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: shipping-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: shipping-service
+
+server:
+  port: 8084
+
+shipping:
+  failure-rate: 0

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: inventory-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: inventory-service
+
+server:
+  port: 8082
+
+inventory:
+  failure-rate: 0   # percent (0-100) — bump to exercise saga compensation

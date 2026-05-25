@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: payment-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: payment-service
+
+server:
+  port: 8083
+
+payment:
+  failure-rate: 0
